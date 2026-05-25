@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Helper</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="bg-glow glow1"></div>
+<div class="bg-glow glow2"></div>
+<div class="bg-grid"></div>
+
+<header class="hero">
+
+    <nav class="navbar">
+        <div class="logo">⚡ Fitness Helper</div>
+        <a href="#calculator" class="nav-btn">Начать</a>
+    </nav>
+
+    <div class="hero-content">
+
+        <div class="hero-text">
+
+            <span class="badge">
+                SMART FITNESS SYSTEM
+            </span>
+
+            <h1>
+                Создай тело
+                <span>своей мечты</span>
+            </h1>
+
+            <p>
+                Узнай идеальную норму калорий,
+                БЖУ и воды для своей цели.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#calculator" class="primary-btn">
+                    Рассчитать сейчас
+                </a>
+
+                <a href="#tips" class="secondary-btn">
+                    Полезные советы
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="hero-cards">
+
+            <div class="mini-card glass">
+                <h3>🔥 Fitness</h3>
+                <p>Следи за калориями и прогрессом</p>
+            </div>
+
+            <div class="mini-card dark-card">
+                <h3>🥩 Protein</h3>
+                <p>Белок помогает росту мышц</p>
+            </div>
+
+            <div class="mini-card gradient-card">
+                <h3>💧 Water</h3>
+                <p>Поддерживай водный баланс</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+
+<section class="container" id="calculator">
+
+    <div class="calculator-card glass">
+
+        <div class="section-title">
+            <span>FITNESS CALCULATOR</span>
+            <h2>Введите данные</h2>
+        </div>
+
+        <form method="POST">
+
+            <div class="form-grid">
+
+                <div class="input-group">
+                    <label>Вес (кг)</label>
+
+                    <input
+                        type="number"
+                        name="weight"
+                        required
+                    >
+                </div>
+
+                <div class="input-group">
+                    <label>Рост (см)</label>
+
+                    <input
+                        type="number"
+                        name="height"
+                        required
+                    >
+                </div>
+
+                <div class="input-group">
+                    <label>Возраст</label>
+
+                    <input
+                        type="number"
+                        name="age"
+                        required
+                    >
+                </div>
+
+                <div class="input-group">
+
+                    <label>Пол</label>
+
+                    <select name="gender">
+
+                        <option value="male">
+                            Мужчина
+                        </option>
+
+                        <option value="female">
+                            Женщина
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <div class="input-group full-width">
+
+                    <label>Цель</label>
+
+                    <select name="goal">
+
+                        <option value="gain">
+                            🏋️ Набор массы
+                        </option>
+
+                        <option value="lose">
+                            🔥 Похудение
+                        </option>
+
+                        <option value="maintain">
+                            ⚖️ Поддержание веса
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+            <button type="submit" class="calculate-btn">
+                ⚡ Рассчитать показатели
+            </button>
+
+        </form>
+
+    </div>
+
+    {% if result %}
+
+    <div class="result-card glass">
+
+        <div class="section-title center">
+            <span>YOUR RESULTS</span>
+            <h2>Ваши показатели</h2>
+        </div>
+
+        <div class="stats">
+
+            <div class="stat-box calories">
+
+                <div class="icon">🔥</div>
+
+                <h3>Калории</h3>
+
+                <p>{{ result.calories }}</p>
+
+                <span>ккал</span>
+
+            </div>
+
+            <div class="stat-box protein">
+
+                <div class="icon">🥩</div>
+
+                <h3>Белки</h3>
+
+                <p>{{ result.protein }}</p>
+
+                <span>грамм</span>
+
+            </div>
+
+            <div class="stat-box fat">
+
+                <div class="icon">🥑</div>
+
+                <h3>Жиры</h3>
+
+                <p>{{ result.fat }}</p>
+
+                <span>грамм</span>
+
+            </div>
+
+            <div class="stat-box carbs">
+
+                <div class="icon">🍚</div>
+
+                <h3>Углеводы</h3>
+
+                <p>{{ result.carbs }}</p>
+
+                <span>грамм</span>
+
+            </div>
+
+            <div class="stat-box water">
+
+    <div class="icon">💧</div>
+
+    <h3>Вода</h3>
+
+    <p>{{ result.water }}</p>
+
+    <span>литров</span>
+
+</div>
+
+        </div>
+
+    </div>
+
+    {% endif %}
+
+</section>
+
+<section class="tips-section" id="tips">
+
+    <div class="section-title center light">
+
+    </div>
+
+    <div class="info">
+
+    </div>
+
+</section>
+
+<footer>
+    ⚡ Fitness Helper © 2026
+</footer>
+<div class="tips-modal" id="tipsModal">
+
+    <div class="modal-content">
+
+        <button class="close-btn" onclick="closeModal()">
+            ✖
+        </button>
+
+        <h2>💡 Полезные советы</h2>
+
+        <div class="modal-tips">
+
+            <div class="modal-tip">
+                <h3>🏋️ Для набора массы</h3>
+                <p>
+                    Увеличь калории на 10–15% и делай
+                    силовые тренировки 3–5 раз в неделю.
+                </p>
+            </div>
+
+            <div class="modal-tip">
+                <h3>🔥 Для похудения</h3>
+                <p>
+                    Создай небольшой дефицит калорий
+                    и добавь кардио.
+                </p>
+            </div>
+
+            <div class="modal-tip">
+                <h3>💧 Вода</h3>
+                <p>
+                    Пей минимум 30 мл воды
+                    на каждый килограмм веса.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+const modal = document.getElementById("tipsModal");
+
+document.querySelector(".secondary-btn")
+.addEventListener("click", function(e){
+
+    e.preventDefault();
+
+    modal.classList.add("show");
+
+});
+
+function closeModal(){
+
+    modal.classList.remove("show");
+
+}
+
+window.addEventListener("click", function(e){
+
+    if(e.target === modal){
+
+        closeModal();
+
+    }
+
+});
+
+</script>
+</body>
+</html>
