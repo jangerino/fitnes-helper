@@ -32,5 +32,5 @@ Fitness Helper — это веб-приложение на Flask для расч
 ## 1. Клонирование проекта
 
 ```bash
-git clone https://github.com/your-repository.git
+git clone https://github.com/jangerino/fitnes-helper
 cd fitness-helper
