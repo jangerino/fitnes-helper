@@ -49,7 +49,12 @@ def calculate_result(weight, height, age, gender, goal):
         dict: Calculated fitness indicators.
     """
 
-    bmr = calculate_bmr(weight, height, age, gender)
+    bmr = calculate_bmr(
+        weight,
+        height,
+        age,
+        gender
+    )
 
     calories = bmr * 1.4
 
@@ -111,4 +116,8 @@ def index():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(
+        host="0.0.0.0",
+        port=5000,
+        debug=True
+    )
