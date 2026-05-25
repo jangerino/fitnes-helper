@@ -1,6 +1,3 @@
-# `requirements.txt`
-
-```txt id="z4z9z1"
 Flask==3.0.3
 Sphinx==7.3.7
 setuptools==69.5.1
